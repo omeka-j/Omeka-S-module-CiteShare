@@ -1,0 +1,53 @@
+<?php
+$translate = $this->plugin('translate');
+$twitter = "https://twitter.com/intent/tweet?url=".$url."&text=".$title;
+$facebook= "https://www.facebook.com/sharer/sharer.php?u=".$url;
+$pocket= "http://getpocket.com/edit?url=".$url;
+?>
+<!-- citation -->
+<div style="margin: 10px">
+<b><?php echo $translate('Citation'); ?></b>
+<br/>
+<span id="citing"></span>
+<br/><input style="margin : 10px;" type="button" value="<?php echo $translate('Copy'); ?>" onclick="copy()"/>
+</div>
+<!-- json-ld -->
+<div style="margin: 10px">
+<b><?php echo $translate('JSON-LD'); ?></b>
+<br/>
+<a href="<?php echo $uri; ?>"><?php echo $uri; ?></a>
+</div>
+<!-- share -->
+<div style="margin: 10px">
+<b><?php echo $translate('Share'); ?></b>
+<br/>
+<a href="<?php echo $twitter; ?>" style="margin-right : 10px;" title="Twitter" target="_blank">Twitter</a>
+<a href="<?php echo $facebook; ?>" style="margin-right : 10px;" title="Facebook" target="_blank">Facebook</a>
+<a href="<?php echo $pocket; ?>" style="margin-right : 10px;" title="Pocket" target="_blank">Pocket</a>
+</div>
+<script>
+    let title = "<?php echo $title; ?>";
+    let url = "<?php echo $url; ?>";
+
+    //記載例
+    let text = `${title}\n(${url})`
+    document.getElementById('citing').textContent = text;
+
+    async function copy(){
+        var listener = function(e){
+
+            e.clipboardData.setData("text/plain" , text);    
+            // 本来のイベントをキャンセル
+            e.preventDefault();
+            // 終わったら一応削除
+            document.removeEventListener("copy", listener);
+        }
+
+        // コピーのイベントが発生したときに、クリップボードに書き込むようにしておく
+        document.addEventListener("copy" , listener);
+
+        // コピー
+        document.execCommand("copy");
+        alert("<?php echo $translate('Copied'); ?>")
+    }
+</script>
