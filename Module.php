@@ -4,7 +4,6 @@ namespace CiteShare;
 
 use Omeka\Module\AbstractModule;
 use Laminas\EventManager\SharedEventManagerInterface;
-use Laminas\View\Renderer\PhpRenderer;
 use Laminas\EventManager\Event;
 
 class Module extends AbstractModule
@@ -24,13 +23,13 @@ class Module extends AbstractModule
     public function attachListeners(SharedEventManagerInterface $sharedEventManager)
     {
         $controllers = [
-            'Omeka\Controller\Site\Item',
+            'Omeka\Controller\Site\Item'
         ];
         foreach ($controllers as $controller) {
             $sharedEventManager->attach(
                 $controller,
                 'view.show.after',
-                [$this, 'displayCiteShare']
+                [$this, 'displayModule']
             );
         }
     }
@@ -40,7 +39,7 @@ class Module extends AbstractModule
      *
      * @param Event $event
      */
-    public function displayCiteShare(Event $event)
+    public function displayModule(Event $event)
     {
         $view = $event->getTarget();
         $resource = $event->getTarget()->resource;

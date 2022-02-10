@@ -1,7 +1,14 @@
-Citing (module for Omeka S)
+CiteShare (module for Omeka S)
 ========================
 
-[Citing] is a module to add  a citation button.
+[CiteShare] is a module to add  a citation button and share links.
+
+Image
+------------
+
+![module.png](asset/img/module.png)
+
+![module_ja.png](asset/img/module_ja.png)
 
 Installation
 ------------
@@ -10,13 +17,13 @@ See general end user documentation for [installing a module].
 
 * From the zip
 
-Download the last release [Citing.zip] from the list of releases, and
+Download the last release [CiteShare.zip] from the list of releases, and
 uncompress it in the `modules` directory.
 
 * From the source and for development
 
 If the module was installed from the source, rename the name of the folder of
-the module to `Citing`.
+the module to `CiteShare`.
 
 TODO / Bugs
 -----------
@@ -43,9 +50,9 @@ Contributors
 
 * Satoru Nakamura, 2022- (see [nakamura196] on GitHub)
 
-[Citing]: https://github.com/omeka-j/Omeka-S-module-Citing
+[CiteShare]: https://github.com/omeka-j/Omeka-S-module-CiteShare
 [Omeka S]: https://omeka.org/s
 [installing a module]: http://dev.omeka.org/docs/s/user-manual/modules/#installing-modules
-[Citing.zip]: https://github.com/omeka-j/Omeka-S-module-Citing/releases
-[module issues]: https://github.com/omeka-j/Omeka-S-module-Citing/issues
+[CiteShare.zip]: https://github.com/omeka-j/Omeka-S-module-CiteShare/releases
+[module issues]: https://github.com/omeka-j/Omeka-S-module-CiteShare/issues
 [nakamura196]: https://github.com/nakamura196 "Satoru Nakamura"

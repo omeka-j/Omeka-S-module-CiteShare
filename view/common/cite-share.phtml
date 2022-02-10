@@ -3,28 +3,31 @@ $translate = $this->plugin('translate');
 $twitter = "https://twitter.com/intent/tweet?url=".$url."&text=".$title;
 $facebook= "https://www.facebook.com/sharer/sharer.php?u=".$url;
 $pocket= "http://getpocket.com/edit?url=".$url;
+$line="http://line.me/R/msg/text/?".$url;
+$mail="mailto:?body=".$url;
 ?>
-<!-- citation -->
-<div style="margin: 10px">
-<b><?php echo $translate('Citation'); ?></b>
-<br/>
-<span id="citing"></span>
-<br/><input style="margin : 10px;" type="button" value="<?php echo $translate('Copy'); ?>" onclick="copy()"/>
-</div>
-<!-- json-ld -->
-<div style="margin: 10px">
-<b><?php echo $translate('JSON-LD'); ?></b>
-<br/>
-<a href="<?php echo $uri; ?>"><?php echo $uri; ?></a>
-</div>
-<!-- share -->
-<div style="margin: 10px">
-<b><?php echo $translate('Share'); ?></b>
-<br/>
-<a href="<?php echo $twitter; ?>" style="margin-right : 10px;" title="Twitter" target="_blank">Twitter</a>
-<a href="<?php echo $facebook; ?>" style="margin-right : 10px;" title="Facebook" target="_blank">Facebook</a>
-<a href="<?php echo $pocket; ?>" style="margin-right : 10px;" title="Pocket" target="_blank">Pocket</a>
-</div>
+
+<table>
+    <tr>
+        <th width="20%"><?php echo $translate('Citation'); ?></th>
+        <td><span id="citing"></span> <input style="margin-left : 10px;" type="button" value="<?php echo $translate('Copy'); ?>" onclick="copy()"/></td>
+    </tr>
+    <tr>
+        <th><?php echo $translate('JSON-LD'); ?></th>
+        <td><a href="<?php echo $uri; ?>"><?php echo $uri; ?></a></td>
+    </tr>
+    <tr>
+        <th><?php echo $translate('Share'); ?></th>
+        <td>
+            <a href="<?php echo $twitter; ?>" title="Twitter" target="_blank">Twitter</a> /
+            <a href="<?php echo $facebook; ?>" title="Facebook" target="_blank">Facebook</a> /
+            <a href="<?php echo $pocket; ?>" title="Pocket" target="_blank">Pocket</a></li> /
+            <a href="<?php echo $line; ?>" title="Line" target="_blank">Line</a></li> /
+            <a href="<?php echo $mail; ?>" title="Mail">Mail</a></li>
+        </td>
+    </tr>
+</table>
+
 <script>
     let title = "<?php echo $title; ?>";
     let url = "<?php echo $url; ?>";
